@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrivateVault Privacy Policy</title>
+<style>
+:root { --ink:#1b1f24; --muted:#5b6470; --line:#e3e6ea; --accent:#2f5d50; --bg:#f7f8f6; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
+main { max-width:760px; margin:0 auto; padding:48px 24px 80px; }
+h1 { font-size:2rem; line-height:1.2; margin:0 0 8px; }
+h2 { font-size:1.2rem; margin:40px 0 8px; color:var(--accent); }
+p, li { color:var(--ink); }
+.meta { color:var(--muted); font-size:.95rem; margin-bottom:32px; }
+.summary { background:#fff; border:1px solid var(--line); border-left:4px solid var(--accent); border-radius:8px; padding:16px 20px; }
+table { width:100%; border-collapse:collapse; margin:12px 0; background:#fff; }
+th, td { text-align:left; vertical-align:top; padding:10px 12px; border:1px solid var(--line); font-size:.95rem; }
+th { background:#eef1ee; }
+code { background:#eef1ee; padding:1px 5px; border-radius:4px; font-size:.9em; }
+</style>
+</head>
+<body>
+<main>
+<h1>PrivateVault Privacy Policy</h1>
+<p class="meta">Last updated November 3, 2026 · Developer: Swuabs Optimizations</p>
+
+<div class="summary">
+<p><strong>In short:</strong> PrivateVault stores your passwords only on your phone, encrypted. We have no servers, no accounts and no analytics. We never see your passwords or anything else you put in the app.</p>
+</div>
+
+<h2>1. What PrivateVault is</h2>
+<p>PrivateVault is a password manager for Android that keeps everything on your device. There is no cloud sync and no sign-up.</p>
+
+<h2>2. Data we collect</h2>
+<p>None. PrivateVault does not collect, transmit or sell personal data. It contains no analytics, advertising, tracking or crash-reporting code, and it does not create a user account.</p>
+
+<h2>3. How your vault is stored</h2>
+<ul>
+<li>Your entries are stored in a database encrypted with AES-256 (SQLCipher).</li>
+<li>The database key is protected by your master password using Argon2id key derivation.</li>
+<li>Attachments are encrypted individually with AES-256-GCM.</li>
+<li>Android's cloud backup is disabled for the app, so the vault is not copied to Google's servers.</li>
+<li>Screenshots and screen recording of the app are blocked.</li>
+</ul>
+<p>Because we never hold your master password or keys, we cannot recover your vault if you forget your master password and lose your recovery code.</p>
+
+<h2>4. When the app uses the internet</h2>
+<table>
+<tr><th>Feature</th><th>What is sent</th><th>Who receives it</th></tr>
+<tr><td>Breach check (optional, Pro)</td><td>The first 5 characters of a SHA-1 hash of a password, with random padding. Never the password itself or the full hash.</td><td>Have I Been Pwned (<code>api.pwnedpasswords.com</code>)</td></tr>
+<tr><td>Subscription (Pro)</td><td>Purchase and subscription status, handled by Google Play.</td><td>Google Play</td></tr>
+</table>
+<p>Everything else works fully offline. All connections use HTTPS; unencrypted traffic is blocked.</p>
+
+<h2>5. Permissions</h2>
+<table>
+<tr><th>Permission</th><th>Why</th></tr>
+<tr><td>Internet</td><td>Only for the optional breach check and Google Play Billing described above.</td></tr>
+<tr><td>Biometric</td><td>Optional fingerprint or face unlock. Android handles your biometrics; the app only learns whether authentication succeeded.</td></tr>
+<tr><td>Google Play Billing</td><td>To offer the optional Pro subscription.</td></tr>
+</table>
+<p>Files you import or export (backups, CSV, attachments) are chosen by you through Android's file picker. The app cannot browse your storage on its own.</p>
+
+<h2>6. Autofill</h2>
+<p>If you enable PrivateVault as your autofill service, it offers matching logins to apps and websites on your device. Autofill runs locally and only while your vault is unlocked. Nothing is transmitted.</p>
+
+<h2>7. Backups, transfers and CSV</h2>
+<p>Encrypted backups (<code>.pvault</code>) are protected with a password you choose and can only be opened with it. You decide where a backup goes, for example another phone, a USB drive or your own cloud storage. CSV exports are not encrypted; the app warns you before creating one.</p>
+
+<h2>8. Subscriptions</h2>
+<p>PrivateVault Pro is an optional subscription sold through Google Play. Google processes the payment under its own privacy policy. We receive only the subscription status from Google Play, which the app checks on your device. You can cancel any time in the Google Play app.</p>
+
+<h2>9. Children</h2>
+<p>PrivateVault is not directed at children under 13 and collects no personal information from anyone.</p>
+
+<h2>10. Your rights</h2>
+<p>Because we hold no data about you, there is nothing for us to access, correct, export or delete on your behalf. You can delete all of your data at any time by uninstalling the app.</p>
+
+<h2>11. Changes</h2>
+<p>If this policy changes, the new version will be posted on this page with an updated date.</p>
+
+<h2>12. Contact</h2>
+<p>Questions about this policy can be sent to the developer email address shown on PrivateVault's Google Play listing.</p>
+</main>
+</body>
+</html>
