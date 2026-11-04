@@ -82,9 +82,9 @@ main { padding: 36px 40px 56px; max-width: 1040px; width: 100%; }
 .cls { display: grid; padding: 2px 0; grid-template-columns: 140px 1fr 110px; gap: 12px; align-items: center; font-size: 13.5px; }
 .cls span { color: var(--ink); }
 .cls b { font-weight: 500; text-align: right; font-variant-numeric: tabular-nums; }
-.pair { display: flex; flex-direction: column; gap: 3px; }
+.pair { display: flex; flex-direction: column; gap: 4px; background: var(--sunken); border-radius: 5px; padding: 4px; }
 .pair i { display: block; height: 7px; border-radius: 4px; min-width: 2px; }
-.pair i.old { background: #2b3946; }
+.pair i.old { background: #8a98a6; }
 .pair i.new { background: linear-gradient(90deg, #2f86c9, var(--accent)); }
 .cap { display: flex; justify-content: space-between; color: var(--muted); font-size: 12.5px; margin-top: 8px; }
 .tests { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
