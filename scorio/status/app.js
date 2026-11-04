@@ -127,7 +127,7 @@ function renderLive(s) {
   const ws = L.workstreams || [];
   $("work-sub").textContent = ws.length ? `${ws.filter((w) => w.active).length} active` : "";
   $("work").innerHTML = ws.length
-    ? ws.map((w) => `<div class="item"><span class="pill ${w.active ? "p-running" : "p-next"}">${w.active ? "Working" : "Paused"}</span><div><b>${esc(w.title)}</b><p>${esc(w.area)}${w.last_activity ? ` · last change ${ago(w.last_activity)}` : ""}</p></div></div>`).join("")
+    ? ws.map((w) => `<div class="item"><span class="pill ${w.active ? "p-running" : "p-next"}">${w.active ? "Working" : "Waiting"}</span><div><b>${esc(w.title)}</b><p>${esc(w.area)}${w.last_activity ? ` · last change ${ago(w.last_activity)}` : ""}</p></div></div>`).join("")
     : `<p class="empty">Nothing running right now.</p>`;
 
   const t = L.training;
