@@ -49,7 +49,7 @@ code { background:#eef1ee; padding:1px 5px; border-radius:4px; font-size:.9em; }
 <table>
 <tr><th>Feature</th><th>What is sent</th><th>Who receives it</th></tr>
 <tr><td>Breach check (optional, Pro)</td><td>The first 5 characters of a SHA-1 hash of a password, with random padding. Never the password itself or the full hash.</td><td>Have I Been Pwned (<code>api.pwnedpasswords.com</code>)</td></tr>
-<tr><td>Subscription (Pro)</td><td>Purchase and subscription status, handled by Google Play.</td><td>Google Play</td></tr>
+<tr><td>Pro purchase</td><td>Purchase and subscription status, handled by Google Play.</td><td>Google Play</td></tr>
 </table>
 <p>Everything else works fully offline. All connections use HTTPS; unencrypted traffic is blocked.</p>
 
@@ -58,7 +58,7 @@ code { background:#eef1ee; padding:1px 5px; border-radius:4px; font-size:.9em; }
 <tr><th>Permission</th><th>Why</th></tr>
 <tr><td>Internet</td><td>Only for the optional breach check and Google Play Billing described above.</td></tr>
 <tr><td>Biometric</td><td>Optional fingerprint or face unlock. Android handles your biometrics; the app only learns whether authentication succeeded.</td></tr>
-<tr><td>Google Play Billing</td><td>To offer the optional Pro subscription.</td></tr>
+<tr><td>Google Play Billing</td><td>To sell the optional Pro upgrade.</td></tr>
 </table>
 <p>Files you import or export (backups, CSV, attachments) are chosen by you through Android's file picker. The app cannot browse your storage on its own.</p>
 
@@ -68,8 +68,8 @@ code { background:#eef1ee; padding:1px 5px; border-radius:4px; font-size:.9em; }
 <h2>7. Backups, transfers and CSV</h2>
 <p>Encrypted backups (<code>.pvault</code>) are protected with a password you choose and can only be opened with it. You decide where a backup goes, for example another phone, a USB drive or your own cloud storage. CSV exports are not encrypted; the app warns you before creating one.</p>
 
-<h2>8. Subscriptions</h2>
-<p>PrivateVault Pro is an optional subscription sold through Google Play. Google processes the payment under its own privacy policy. We receive only the subscription status from Google Play, which the app checks on your device. You can cancel any time in the Google Play app.</p>
+<h2>8. Purchases</h2>
+<p>PrivateVault Pro is an optional upgrade sold through Google Play as a monthly subscription, a yearly subscription or a one-time lifetime purchase. Google processes the payment under its own privacy policy. We receive only the purchase status from Google Play, which the app checks on your device. You can cancel a subscription any time in the Google Play app.</p>
 
 <h2>9. Children</h2>
 <p>PrivateVault is not directed at children under 13 and collects no personal information from anyone.</p>
