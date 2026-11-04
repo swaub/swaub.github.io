@@ -121,3 +121,9 @@ main { padding: 36px 40px 56px; max-width: 1040px; width: 100%; }
   .tiles, .tests { grid-template-columns: 1fr; }
   .item { grid-template-columns: 1fr; gap: 6px; }
 }
+.stage { padding: 12px 0; border-top: 1px solid var(--line); }
+.stage:first-child { border-top: 0; padding-top: 0; }
+.stage-head { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+.stage-head span { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+.stage .sub { margin: 4px 0 0; }
+.body b { color: var(--ink); font-weight: 600; }
