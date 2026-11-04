@@ -1,6 +1,8 @@
 "use strict";
 
 const REFRESH_MS = 30000;
+const ISSUES_URL = "https://scorio-reports.vercel.app/api/issues";
+const ISSUES_REFRESH_MS = 60000;
 const FEED = "https://raw.githubusercontent.com/swaub/scorio-status-feed/main/status.json";
 const VIEWS = ["overview", "next", "model", "tests", "issues", "changelog"];
 const $ = (id) => document.getElementById(id);
@@ -16,6 +18,12 @@ function when(iso) {
   return d.toLocaleString(undefined, { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
 }
 
+function day(ymd) {
+  const d = new Date(`${ymd}T12:00:00`);
+  if (Number.isNaN(d.getTime())) return esc(ymd);
+  return d.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
+}
+
 function ago(iso) {
   const s = Math.max(0, Math.round((Date.now() - new Date(iso).getTime()) / 1000));
   if (s < 60) return `${s} s ago`;
@@ -26,6 +34,13 @@ function ago(iso) {
 
 const TONE = { good: "good", warn: "warn", bad: "bad", dim: "dim" };
 const PILL = { done: "Done", running: "Running", next: "Up next", waiting: "Waiting", failed: "Failed" };
+const REPORT_STATUS = {
+  new: ["New", "p-next"],
+  investigating: ["Looking into it", "p-waiting"],
+  confirmed: ["Confirmed", "p-running"],
+  fixed: ["Fixed", "p-done"],
+  not_a_bug: ["Not a bug", "p-next"],
+};
 const DOT = { fixed: "var(--good)", minor: "var(--warn)", major: "var(--bad)" };
 
 function tile(t) {
@@ -178,8 +193,44 @@ async function load() {
   liveText();
 }
 
+function reportedRow(i) {
+  const [label, cls] = REPORT_STATUS[i.status] || REPORT_STATUS.new;
+  const fixed = i.status === "fixed" && i.fixed_in ? ` · fixed in ${esc(i.fixed_in)}` : "";
+  return `<div class="rep"><code>${esc(i.code)}</code><div><p>${esc(i.summary)}</p><small>Version ${esc(i.version)} · received ${day(i.received)}${fixed}</small></div><span class="pill ${cls}">${label}</span></div>`;
+}
+
+function renderReported(list) {
+  const card = $("reported-card");
+  if (!Array.isArray(list)) {
+    card.hidden = true;
+    return;
+  }
+  if (!list.length) {
+    $("reported-sub").textContent = "none yet";
+    $("reported").innerHTML = "";
+    card.hidden = false;
+    return;
+  }
+  const open = list.filter((i) => i.status !== "fixed" && i.status !== "not_a_bug").length;
+  $("reported-sub").textContent = `${list.length} reported · ${open} open`;
+  $("reported").innerHTML = list.map(reportedRow).join("");
+  card.hidden = false;
+}
+
+async function loadReported() {
+  try {
+    const r = await fetch(ISSUES_URL, { cache: "no-store" });
+    if (!r.ok) throw new Error(String(r.status));
+    const body = await r.json();
+    renderReported(body.issues);
+  } catch {
+  }
+}
+
 window.addEventListener("hashchange", () => show(location.hash.slice(1)));
 show(location.hash.slice(1));
 load();
+loadReported();
 setInterval(load, REFRESH_MS);
+setInterval(loadReported, ISSUES_REFRESH_MS);
 setInterval(liveText, 5000);

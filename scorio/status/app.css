@@ -127,3 +127,15 @@ main { padding: 36px 40px 56px; max-width: 1040px; width: 100%; }
 .stage-head span { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
 .stage .sub { margin: 4px 0 0; }
 .body b { color: var(--ink); font-weight: 600; }
+.card[hidden] { display: none; }
+#reported-card .body { margin-bottom: 6px; }
+.rep { display: grid; grid-template-columns: 74px 1fr 118px; gap: 14px; padding: 12px 0; border-top: 1px solid var(--line); align-items: start; }
+.rep:first-of-type { border-top: 0; }
+.rep code { font: 600 13px/1.4 var(--display); font-variant-numeric: tabular-nums; }
+.rep p { margin: 0; }
+.rep small { display: block; margin-top: 2px; color: var(--muted); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+.rep .pill { justify-self: end; }
+@media (max-width: 480px) {
+  .rep { grid-template-columns: 1fr auto; }
+  .rep > div { grid-column: 1 / -1; grid-row: 2; }
+}
