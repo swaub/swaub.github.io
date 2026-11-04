@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scorio Status</title>
+<meta name="description" content="Live status of Scorio: releases, the next update, the AI model and test results.">
+<link rel="icon" href="logo.png">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="shell">
+  <aside class="side">
+    <div class="brand">
+      <img src="logo.png" alt="" width="34" height="34">
+      <div><b>Scorio</b><span>Status · by swuab</span></div>
+    </div>
+    <nav id="nav">
+      <a href="#overview" data-view="overview">Overview</a>
+      <a href="#next" data-view="next">Next update<span class="count" id="nav-next"></span></a>
+      <a href="#model" data-view="model">AI model</a>
+      <a href="#tests" data-view="tests">Tests</a>
+      <a href="#issues" data-view="issues">Known issues<span class="count" id="nav-issues"></span></a>
+      <a href="#changelog" data-view="changelog">Changelog</a>
+    </nav>
+    <div class="side-foot">
+      <div class="live" id="live"><i></i><span>Connecting</span></div>
+      <a class="dl" href="https://swaub.github.io/dist/scorio/Scorio-setup.exe">Download Scorio</a>
+    </div>
+  </aside>
+
+  <main id="main">
+    <section class="view" id="view-overview">
+      <header class="head"><h1>Overview</h1><p>Where Scorio is right now. This page refreshes by itself.</p></header>
+      <div class="tiles" id="tiles"></div>
+      <div class="card"><div class="card-head"><h2>Latest activity</h2><span class="sub">newest first</span></div><div id="activity"></div></div>
+    </section>
+
+    <section class="view" id="view-next">
+      <header class="head"><h1 id="next-title">Next update</h1><p id="next-eta"></p></header>
+      <div class="card">
+        <div class="card-head"><h2>Progress</h2><span class="sub" id="next-count"></span></div>
+        <div class="bar"><div id="next-bar"></div></div>
+        <div id="next-items"></div>
+      </div>
+      <p class="note" id="next-gate"></p>
+    </section>
+
+    <section class="view" id="view-model">
+      <header class="head"><h1>AI model</h1><p>The model that tells games, calls, streams and downloads apart.</p></header>
+      <div class="tiles" id="model-tiles"></div>
+      <div class="card">
+        <div class="card-head"><h2>Recognition by app type</h2><span class="sub" id="model-phase"></span></div>
+        <div class="chart" id="model-chart"></div>
+        <div class="cap"><span>Grey: 0.4.8 model · Teal: 0.4.9 model</span><span id="model-last"></span></div>
+      </div>
+      <div class="card"><div class="card-head"><h2>Quality gate</h2></div><p class="body" id="model-gate"></p></div>
+    </section>
+
+    <section class="view" id="view-tests">
+      <header class="head"><h1>Tests</h1><p id="tests-sub"></p></header>
+      <div class="tests" id="tests"></div>
+      <div class="card"><div class="card-head"><h2>Before / after lab</h2></div><div id="lab"></div></div>
+    </section>
+
+    <section class="view" id="view-issues">
+      <header class="head"><h1>Known issues</h1><p>Problems in the current version and when they get fixed.</p></header>
+      <div class="card" id="issues"></div>
+    </section>
+
+    <section class="view" id="view-changelog">
+      <header class="head"><h1>Changelog</h1><p>Every released version.</p></header>
+      <div class="card" id="changelog"></div>
+    </section>
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
