@@ -1,6 +1,6 @@
 {
-  "version": "0.4.16",
-  "url": "https://swaub.github.io/dist/scorio/Scorio_0.4.16_x64-setup.exe",
-  "sha256": "1c44f4774ad4c85d546a7c14082ec0da3a9514d36ced7bcf5c392d8865addd25",
-  "signature": "2ffeb9cfeaaecd9ee1ce328eb2979779e9d6129e4fa55f58da9beb9c32abdcb31df76fad19ff98d8b996d4e09d642b1ccbd626ad7341084e428681cef0cbad09"
+  "version": "0.4.17",
+  "url": "https://swaub.github.io/dist/scorio/Scorio_0.4.17_x64-setup.exe",
+  "sha256": "d6cd7e3e3ab58832da84bb0ffb232812509c1596b363319cab1711238cb4780e",
+  "signature": "d63d16c2c09a6b1d6345a6afd1c57d755e589dfeea6cb51698f90d8195e7a188b7397eb5ddab77dc3923022d227015b4eec8a60b978b6c97287439676bbb9c01"
 }
