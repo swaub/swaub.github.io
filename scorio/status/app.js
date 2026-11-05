@@ -195,8 +195,8 @@ async function load() {
 
 function reportedRow(i) {
   const [label, cls] = REPORT_STATUS[i.status] || REPORT_STATUS.new;
-  const fixed = i.status === "fixed" && i.fixed_in ? ` · fixed in ${esc(i.fixed_in)}` : "";
-  return `<div class="rep"><code>${esc(i.code)}</code><div><p>${esc(i.summary)}</p><small>Version ${esc(i.version)} · received ${day(i.received)}${fixed}</small></div><span class="pill ${cls}">${label}</span></div>`;
+  const fixed = i.fixed_in ? (i.status === "fixed" ? ` · fixed in ${esc(i.fixed_in)}` : ` · fix planned for ${esc(i.fixed_in)}`) : "";
+  return `<div class="rep"><code>${esc(i.code)}</code><div><p>${esc(i.summary)}</p><small>Reported on version ${esc(i.version)} · received ${day(i.received)}${fixed}</small></div><span class="pill ${cls}">${label}</span></div>`;
 }
 
 function renderReported(list) {
