@@ -1,7 +1,7 @@
 "use strict";
 
 const REFRESH_MS = 30000;
-const ISSUES_URL = "https://scorio-reports.vercel.app/api/issues";
+const ISSUES_URL = "https://jetson-thor.tail0a6858.ts.net:8443/api/issues";
 const ISSUES_REFRESH_MS = 60000;
 const FEED = "https://raw.githubusercontent.com/swaub/scorio-status-feed/main/status.json";
 const VIEWS = ["overview", "next", "model", "tests", "issues", "changelog"];
